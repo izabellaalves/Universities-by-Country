@@ -6,10 +6,9 @@ export async function listarPaises() {
         const resposta = await api.get('all');
         
         const nomesPaises = resposta.data.map(pais => pais.name.common);
-        console.log(nomesPaises);
 
         return nomesPaises;
     } catch (erro) {
-        console.error('Erro ao listar os países:', erro);
+        throw new Error('Erro ao listar os países');
     }
 }
